@@ -44,7 +44,7 @@ public class ProdutoResource {
 
     @PutMapping("/produto")
     public Produto atualizaProduto(@RequestBody Produto produto) {
-        return  produtoRepository.save(produto);
+        return produtoRepository.save(produto);
     }
 
 }
