@@ -14,13 +14,14 @@ import jakarta.validation.constraints.NotNull;
 @Table(name = "TB_PRODUTO")
 public class Produto implements Serializable {
     private static final long serialVersionUID = 1L;
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @NotNull
     private String nome;
-    
+
     @NotNull
     private BigDecimal quantidade;
 

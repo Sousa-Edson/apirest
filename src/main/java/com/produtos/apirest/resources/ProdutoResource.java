@@ -17,9 +17,11 @@ import org.springframework.web.bind.annotation.RestController;
 import com.produtos.apirest.models.Produto;
 import com.produtos.apirest.repository.ProdutoRepository;
 
+import jakarta.validation.Valid;
+
+@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping(value = "/api")
-@CrossOrigin
 public class ProdutoResource {
 	@Autowired
 	ProdutoRepository produtoRepository;
@@ -35,17 +37,17 @@ public class ProdutoResource {
 	}
 
 	@PostMapping("/produto")
-	public Produto salvaProduto(@RequestBody Produto produto) {
+	public Produto salvaProduto(@RequestBody @Valid Produto produto) {
 		return produtoRepository.save(produto);
 	}
 
 	@DeleteMapping("/produto")
-	public void deletaProduto(@RequestBody Produto produto) {
+	public void deletaProduto(@RequestBody @Valid Produto produto) {
 		produtoRepository.delete(produto);
 	}
 
 	@PutMapping("/produto")
-	public Produto atualizaProduto(@RequestBody Produto produto) {
+	public Produto atualizaProduto(@RequestBody @Valid Produto produto) {
 		return produtoRepository.save(produto);
 	}
 
